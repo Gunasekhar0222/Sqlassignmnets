@@ -1,1 +1,21 @@
-# assignmentsbigdata
+CREATE TABLE EMPLOYEE(
+emp_name varchar(20)PRIMARY KEY,
+deptNo integer NOT NULL,
+salary integer NOT NULL,
+);
+INSERT INTO EMPLOYEE VALUES('A','10','1000');
+INSERT INTO EMPLOYEE VALUES('B','10','2000');
+INSERT INTO EMPLOYEE VALUES('C','10','3000');
+INSERT INTO EMPLOYEE VALUES('D','20','7000');
+INSERT INTO EMPLOYEE VALUES('E','20','9000');
+INSERT INTO EMPLOYEE VALUES('F','20','8000');
+INSERT INTO EMPLOYEE VALUES('G','30','17000');
+INSERT INTO EMPLOYEE VALUES('H','30','15000');
+INSERT INTO EMPLOYEE VALUES('I','30','30000');
+SELECT * FROM EMPLOYEE;
+SELECT e.*,
+max(salary) over(partition by deptNo) as max_salary FROM EMPLOYEE e;
+SELECT * FROM (
+SELECT e*.,
+rank() over(partition by deptNo order by salary desc) as rnk FROM EMPLOYEE e) x
+where x.rnk = 2;
