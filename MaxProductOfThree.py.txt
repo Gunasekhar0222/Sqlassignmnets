@@ -1,0 +1,9 @@
+def solution(A):
+    A.sort()
+    list_of_score = []
+      if A[0] < 0 and A[1] < 0 and A[-1] > 0:
+        list_of_score.append(A[0] * A[1] * A[-1])
+
+        list_of_score.append(A[-1] * A[-2] * A[-3])
+        list_of_score.sort()
+    return list_of_score[-1]
