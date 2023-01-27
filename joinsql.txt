@@ -1,0 +1,24 @@
+CREATE TABLE Orders(
+  order_id INTEGER PRIMARY KEY,
+  First_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  Age TEXT NOT NULL
+); INSERT INTO Orders VALUES (1, 'Guna', 'Sekhar', '23');
+INSERT INTO Orders VALUES (2, 'Siva', 'Kumar', '21');
+INSERT INTO Orders VALUES (4, 'Ajay', 'Kumar', '32');
+SELECT * FROM Orders;
+
+CREATE TABLE Orders(
+  order_id INTEGER PRIMARY KEY,
+  First_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  Age TEXT NOT NULL
+); INSERT INTO Orders VALUES (1, 'Guna', 'Sekhar', '23');
+INSERT INTO Orders VALUES (2, 'Siva', 'Kumar', '21');
+INSERT INTO Orders VALUES (4, 'Ajay', 'Kumar', '32');
+
+SELECT * FROM Orders;
+SELECT Customers.cust_id,Orders.order_id
+FROM Customers
+LEFT join
+Orders ON Customers.cust_id = Orders.order_id;
